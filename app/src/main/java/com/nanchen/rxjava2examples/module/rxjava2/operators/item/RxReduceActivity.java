@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.operators.item;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.R;
@@ -28,9 +29,10 @@ public class RxReduceActivity extends RxOperatorBaseActivity {
         return getString(R.string.rx_reduce);
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
-        Observable.just(1, 2, 3)
+        Observable.just(1, 2, 3, 4)
                 .reduce(new BiFunction<Integer, Integer, Integer>() {
                     @Override
                     public Integer apply(@NonNull Integer integer, @NonNull Integer integer2) throws Exception {

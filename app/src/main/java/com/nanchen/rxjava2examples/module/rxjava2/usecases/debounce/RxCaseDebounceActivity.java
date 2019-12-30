@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.usecases.debounce;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -54,6 +55,7 @@ public class RxCaseDebounceActivity extends RxOperatorBaseActivity {
 
     }
 
+    @SuppressLint("CheckResult")
     private void clickBtn() {
         Rx2AndroidNetworking.get("http://www.tngou.net/api/food/list")
                 .addQueryParameter("rows",2+"") // 只获取两条数据

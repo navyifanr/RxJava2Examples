@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.operators.item;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.R;
@@ -26,6 +27,7 @@ public class RxMergeActivity extends RxOperatorBaseActivity {
         return getString(R.string.rx_merge);
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         Observable.merge(Observable.just(1, 2), Observable.just(3, 4, 5))

@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.usecases.fastNetwork;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.model.MobileAddress;
@@ -33,6 +34,7 @@ public class RxNetworkActivity extends RxOperatorBaseActivity {
         return "使用Rx2-Networking";
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         mRxOperatorsText.append("RxNetworkActivity\n");

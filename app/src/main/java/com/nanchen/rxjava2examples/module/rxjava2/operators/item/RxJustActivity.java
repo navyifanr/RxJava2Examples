@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.operators.item;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.R;
@@ -33,6 +34,7 @@ public class RxJustActivity extends RxOperatorBaseActivity {
     /**
      * RxJava 2.x 新增Consumer，可自定义实现，accept 里面相当于原本的onNext
      */
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         Observable.just("1", "2", "3")

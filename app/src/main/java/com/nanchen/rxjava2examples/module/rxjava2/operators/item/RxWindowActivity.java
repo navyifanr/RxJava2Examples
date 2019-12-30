@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.operators.item;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.R;
@@ -30,6 +31,7 @@ public class RxWindowActivity extends RxOperatorBaseActivity {
         return getString(R.string.rx_window);
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         mRxOperatorsText.append("window\n");

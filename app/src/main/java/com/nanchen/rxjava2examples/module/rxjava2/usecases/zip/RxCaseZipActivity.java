@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.usecases.zip;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.model.CategoryResult;
@@ -33,6 +34,7 @@ public class RxCaseZipActivity extends RxOperatorBaseActivity {
         return "zip 操作符使用场景";
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         Observable<MobileAddress> observable1 = Rx2AndroidNetworking.get("http://api.avatardata.cn/MobilePlace/LookUp?key=ec47b85086be4dc8b5d941f5abd37a4e&mobileNumber=13021671512")
@@ -40,24 +42,24 @@ public class RxCaseZipActivity extends RxOperatorBaseActivity {
                 .getObjectObservable(MobileAddress.class);
 
         Observable<CategoryResult> observable2 = Network.getGankApi()
-                .getCategoryData("Android",1,1);
+                .getCategoryData("Android", 1, 1);
 
         Observable.zip(observable1, observable2, new BiFunction<MobileAddress, CategoryResult, String>() {
             @Override
             public String apply(@NonNull MobileAddress mobileAddress, @NonNull CategoryResult categoryResult) throws Exception {
-                return "合并后的数据为：手机归属地："+mobileAddress.getResult().getMobilearea()+"人名："+categoryResult.results.get(0).who;
+                return "合并后的数据为：手机归属地：" + mobileAddress.getResult().getMobilearea() + "人名：" + categoryResult.results.get(0).who;
             }
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        Log.e(TAG, "accept: 成功：" + s+"\n");
+                        Log.e(TAG, "accept: 成功：" + s + "\n");
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(@NonNull Throwable throwable) throws Exception {
-                        Log.e(TAG, "accept: 失败：" + throwable+"\n");
+                        Log.e(TAG, "accept: 失败：" + throwable + "\n");
                     }
                 });
     }

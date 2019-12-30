@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.usecases.okHttp;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -44,6 +45,7 @@ public class RxNetSingleActivity extends RxOperatorBaseActivity {
         return "单一的网络请求";
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         Observable.create(new ObservableOnSubscribe<Response>() {

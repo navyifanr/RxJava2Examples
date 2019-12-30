@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.operators.item;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.R;
@@ -27,6 +28,7 @@ public class RxTakeActivity extends RxOperatorBaseActivity {
         return getString(R.string.rx_take);
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         Flowable.fromArray(1,2,3,4,5)

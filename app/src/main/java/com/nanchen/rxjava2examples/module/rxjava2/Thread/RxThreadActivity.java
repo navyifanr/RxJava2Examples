@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.Thread;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.module.rxjava2.operators.item.RxOperatorBaseActivity;
@@ -29,6 +30,7 @@ public class RxThreadActivity extends RxOperatorBaseActivity {
         return "线程调度";
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         Observable.create(new ObservableOnSubscribe<Integer>() {

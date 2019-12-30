@@ -16,6 +16,13 @@ import io.reactivex.disposables.Disposable;
  * <p>
  * 最常见的操作符，用于生产一个发射对象
  *
+ * -----------------------------------
+ * 事件会先执行 onSubscribe 订阅方法，然后执行 create 内部的 subscribe 方法，发送事件；
+ * 一个个事件会在 onNext 方法回调，如果中途 dispose 了事件，会直接终止事件的发送，并且不
+ * 会回调到 onNext, onError 或 onComplete
+ *
+ *------------------------------------
+ *
  * Author: nanchen
  * Email: liushilin520@foxmail.com
  * Date: 2017-06-19  17:06

@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.operators.item;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.R;
@@ -29,10 +30,11 @@ public class RxBufferActivity extends RxOperatorBaseActivity {
         return getString(R.string.rx_buffer);
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         Observable.just(1, 2, 3, 4, 5)
-                .buffer(3, 2)
+                .buffer(3, 1)
                 .subscribe(new Consumer<List<Integer>>() {
                     @Override
                     public void accept(@NonNull List<Integer> integers) throws Exception {

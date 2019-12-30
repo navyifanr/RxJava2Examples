@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.operators.item;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.R;
@@ -25,6 +26,7 @@ public class RxDistinctActivity extends RxOperatorBaseActivity {
         return getString(R.string.rx_distinct);
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         Observable.just(1, 1, 1, 2, 2, 3, 4, 5)

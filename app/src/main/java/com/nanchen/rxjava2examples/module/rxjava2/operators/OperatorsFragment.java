@@ -56,7 +56,7 @@ public class OperatorsFragment extends CategoryBaseFragment {
                 "最终下游事件收到的是和上游事件最少的数目相同（必须两两配对，多余的舍弃)"));
         data.add(new OperatorModel(getString(R.string.rx_map),"基本是RxJava 最简单的操作符了作用是对上游发送的每一个事件应用一个函数，" +
                 "使得每一个事件都按照指定的函数去变化"));
-        data.add(new OperatorModel(getString(R.string.rx_flatMap),"FlatMap将一个发送事件的上游Observable变换成多个发送事件的Observables， 然后将它们发射的时间合并后放进一个单独的Observable里"));
+        data.add(new OperatorModel(getString(R.string.rx_flatMap),"FlatMap将一个发送事件的上游Observable变换成【多个发送事件的Observables】， 然后将它们发射的时间合并后放进一个单独的Observable里"));
         data.add(new OperatorModel(getString(R.string.rx_concatMap),"concatMap作用和flatMap几乎一模一样，唯一的区别是它能保证事件的顺序"));
         data.add(new OperatorModel(getString(R.string.rx_doOnNext),"让订阅者在接收到数据前干点事情的操作符"));
         data.add(new OperatorModel(getString(R.string.rx_filter),"过滤操作符，取正确的值"));

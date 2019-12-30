@@ -1,5 +1,6 @@
 package com.nanchen.rxjava2examples.module.rxjava2.usecases.concat;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import com.nanchen.rxjava2examples.model.FoodList;
@@ -37,6 +38,7 @@ public class RxCaseConcatActivity extends RxOperatorBaseActivity {
         return "先读取缓存再读取网络";
     }
 
+    @SuppressLint("CheckResult")
     @Override
     protected void doSomething() {
         Observable<FoodList> cache = Observable.create(new ObservableOnSubscribe<FoodList>() {
@@ -74,7 +76,7 @@ public class RxCaseConcatActivity extends RxOperatorBaseActivity {
         });
 
         Observable<FoodList> network = Rx2AndroidNetworking.get("http://www.tngou.net/api/food/list")
-                .addQueryParameter("rows",10+"")
+                .addQueryParameter("rows",10 + "")
                 .build()
                 .getObjectObservable(FoodList.class);
 
